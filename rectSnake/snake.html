@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        #canvas{
+            box-shadow: 0 5px 40px black;
+
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="400" height="400"></canvas>
+</body>
+<script src="snake.js"></script>
+<script src="food.js"></script>
+<script src="grid.js"></script>
+<script src="game.js"></script>
+<script>
+
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d"); //获取画板
+
+    //根据键盘事件，判断蛇头的方向
+    document.addEventListener("keydown",function (e) {
+       switch (e.keyCode){
+           case 37:
+               snake.changeDirection("left");
+               break;
+           case 38:
+               snake.changeDirection("up");
+               break;
+           case 39:
+               snake.changeDirection("right");
+               break;
+           case 40:
+               snake.changeDirection("down");
+               break;
+       }
+        e.preventDefault();
+    });
+
+    game.init();
+    game.start();
+</script>
+</html>
